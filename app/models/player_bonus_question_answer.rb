@@ -1,0 +1,2 @@
+class PlayerBonusQuestionAnswer < ApplicationRecord
+end

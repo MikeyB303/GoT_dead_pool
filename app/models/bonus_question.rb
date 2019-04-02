@@ -1,0 +1,2 @@
+class BonusQuestion < ApplicationRecord
+end
