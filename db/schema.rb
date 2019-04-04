@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_023542) do
   end
 
   create_table "statuses", force: :cascade do |t|
-    t.string "status", null: false
+    t.string "label", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

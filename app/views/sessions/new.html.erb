@@ -1,0 +1,17 @@
+<h3>Log in</h3>
+<%= render partial: './errors', locals: {errors: @errors} %>
+<div>
+  <%= form_for :sessions, url: sessions_path do |f| %>
+      <div>
+        <%= f.text_field :player_name, placeholder: 'Username' %>
+      </div>
+
+      <div>
+        <%= f.password_field :password, placeholder: 'Password' %>
+      </div>
+
+      <div>
+        <%= f.submit 'Log In' %>
+      </div>
+<% end %>
+</div>

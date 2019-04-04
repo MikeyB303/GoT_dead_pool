@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-alive = Status.create(status: "Alive")
-Status.create(status: "Dead")
-Status.create(status: "White Walker")
+alive = Status.create(label: "Alive")
+Status.create(label: "Dead")
+Status.create(label: "White Walker")
 
 Character.create([
   {name: "Jon Snow", status_id: alive.id},

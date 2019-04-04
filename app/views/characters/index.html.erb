@@ -12,7 +12,7 @@
     <% @characters.each do |character| %>
     <tr>
       <td><%= character.name %></td>
-      <td><%= character.character_status.status_label %></td>
+      <td><%= character.status.label %></td>
     </tr>
     <% end %>
   </tbody>
