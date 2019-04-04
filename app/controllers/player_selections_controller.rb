@@ -1,0 +1,2 @@
+class PlayerSelectionsController < ApplicationController
+end

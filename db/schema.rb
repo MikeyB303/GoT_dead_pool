@@ -10,42 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_02_023036) do
+ActiveRecord::Schema.define(version: 2019_04_04_023542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bonus_questions", force: :cascade do |t|
     t.string "label", null: false
-    t.string "correct_answer", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "character_statuses", force: :cascade do |t|
-    t.string "status_label", null: false
+    t.string "answer", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "characters", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "character_status_id", null: false
+    t.integer "status_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "player_bonus_question_answers", force: :cascade do |t|
-    t.integer "bonus_question_id", null: false
-    t.integer "player_id", null: false
-    t.string "answer", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "player_selections", force: :cascade do |t|
-    t.integer "character_id", null: false
-    t.integer "character_status_id", null: false
+  create_table "player_pools", force: :cascade do |t|
     t.integer "player_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,6 +38,28 @@ ActiveRecord::Schema.define(version: 2019_04_02_023036) do
   create_table "players", force: :cascade do |t|
     t.string "player_name", null: false
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pool_bonus_question_answers", force: :cascade do |t|
+    t.integer "bonus_question_id", null: false
+    t.integer "player_pool_id", null: false
+    t.string "answer", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pool_selections", force: :cascade do |t|
+    t.integer "character_id", null: false
+    t.integer "status_id", null: false
+    t.integer "player_pool_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

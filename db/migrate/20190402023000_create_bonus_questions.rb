@@ -2,7 +2,7 @@ class CreateBonusQuestions < ActiveRecord::Migration[5.2]
   def change
     create_table :bonus_questions do |t|
       t.string :label, null: false
-      t.string :correct_answer, null: false
+      t.string :answer, null: false
 
       t.timestamps
     end
