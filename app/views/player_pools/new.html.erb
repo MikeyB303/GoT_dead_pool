@@ -2,9 +2,12 @@
 <%= render partial: './errors', locals: {errors: @errors} %>
 <%= form_for @pool do |pool_form| %>
   <%= pool_form.fields_for :pool_selections, @selections do |selection_fields| %>
-    <%= selection_fields.label :character %>
     <%= selection_fields.text_field :name, readonly: true, value: selection_fields.object.character.name %>
     <%= selection_fields.select(:status_id, Status.all.collect {|status| [status.label, status.id]}) %>
+  <% end %>
+  <%= pool_form.fields_for :pool_bonus_question_answers, @bonus_questions do |bonus_question_fields| %>
+    <%= bonus_question_fields.text_field :question, readonly: true, value: bonus_question_fields.object.bonus_question.label %>
+    <%= bonus_question_fields.text_field :answer %>
   <% end %>
   <%= pool_form.submit 'Save Pool' %> 
 <% end %>
