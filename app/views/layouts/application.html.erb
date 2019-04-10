@@ -22,7 +22,11 @@
             <a class="nav-link" href="/">Home</a>
           </li>
         </ul>
-        <a class="btn btn-outline-primary" href="/player_pools/new" role="button">Submit Dead Pool</a>
+        <% if @pool_available %>
+          <a class="btn btn-outline-primary" href="/player_pools/<%= @pool_id %>/edit" role="button">Edit Dead Pool</a>
+        <% else %>
+          <a class="btn btn-outline-primary" href="/player_pools/new" role="button">Submit Dead Pool</a>
+        <% end %>
       </div>
     </nav>
     <%= yield %>
