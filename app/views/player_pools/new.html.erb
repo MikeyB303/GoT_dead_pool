@@ -2,20 +2,34 @@
   <h1>New pool</h1>
   <%= render partial: './errors', locals: {errors: @errors} %>
   <%= form_for @pool do |pool_form| %>
-    <%= pool_form.fields_for :pool_selections, @selections do |selection_fields| %>
-      <div class="form-group row">
-        <%= selection_fields.hidden_field :name, value: selection_fields.object.character.name %>
-        <%= selection_fields.label :name, selection_fields.object.character.name, :class => "col-sm-2 col-form-label" %>
-        <div class="col-sm-10">
-          <%= selection_fields.select(:status_id, Status.all.collect {|status| [status.label, status.id]}, {}, {:class => "form-control"}) %>
-        </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= pool_form.fields_for :pool_selections, @selections do |selection_fields| %>
+          <div class="form-group row">
+            <%= selection_fields.hidden_field :name, value: selection_fields.object.character.name %>
+            <%= selection_fields.label :name, selection_fields.object.character.name, :class => "col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+              <%= selection_fields.select(:status_id, Status.all.collect {|status| [status.label, status.id]}, {}, {:class => "form-control"}) %>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-    <%= pool_form.fields_for :pool_bonus_question_answers, @bonus_questions do |bonus_question_fields| %>
-      <%= bonus_question_fields.hidden_field :question, value: bonus_question_fields.object.bonus_question.label %>
-      <%= bonus_question_fields.label :question, bonus_question_fields.object.bonus_question.label%>
-      <%= bonus_question_fields.text_field :answer %>
-    <% end %>
-    <%= pool_form.submit 'Save Pool' %> 
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= pool_form.fields_for :pool_bonus_question_answers, @bonus_questions do |bonus_question_fields| %>
+          <div class="form-group">
+            <%= bonus_question_fields.hidden_field :question, value: bonus_question_fields.object.bonus_question.label %>
+            <%= bonus_question_fields.label :question, bonus_question_fields.object.bonus_question.label %>
+            <%= bonus_question_fields.text_field :answer, :class => "form-control" %>
+          <div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <%= pool_form.submit 'Save Pool', :class => "btn btn-primary btn-lg btn-block" %>
+      </div>
+    </div>
   <% end %>
 </div>
