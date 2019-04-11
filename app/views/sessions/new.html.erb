@@ -17,9 +17,15 @@
       </div>
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center pt-1">
       <div class="col-md-4">
         <%= f.submit 'Sign in', :class => "btn btn-primary btn-block" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center pt-1">
+      <div class="col-md-4">
+        <%= link_to 'New player? Create account!', new_player_path, :class => "btn btn-primary btn-block"%>
       </div>
     </div>
   <% end %>
