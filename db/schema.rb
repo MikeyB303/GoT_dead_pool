@@ -38,10 +38,13 @@ ActiveRecord::Schema.define(version: 2019_04_04_023542) do
   end
 
   create_table "players", force: :cascade do |t|
-    t.string "player_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.string "email", null: false
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_players_on_email", unique: true
   end
 
   create_table "pool_bonus_question_answers", force: :cascade do |t|

@@ -1,0 +1,31 @@
+<h3>Sign up</h3>
+<%= render partial: './errors', locals: {errors: @errors} %>
+
+<div>
+  <%= form_for :players, url: '/players' do |f| %>
+
+      <div>
+        <%= f.text_field :first_name, class: 'validate' %>
+        <%= f.label :first_name %>
+      </div>
+
+      <div>
+        <%= f.text_field :last_name, class: 'validate' %>
+        <%= f.label :last_name %>
+      </div>
+
+      <div>
+        <%= f.email_field :email, class: 'validate' %>
+        <%= f.label :email %>
+      </div>
+
+      <div>
+        <%= f.password_field :password, class: 'validate' %>
+        <%= f.label :password %>
+      </div>
+
+      <div>
+        <%= f.submit 'Create my account' %>
+      </div>
+  <% end %>
+</div>

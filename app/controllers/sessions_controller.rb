@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    player = Player.find_by(player_name: params[:sessions][:player_name])
+    player = Player.find_by(email: params[:sessions][:email])
     if player && player.authenticate(params[:sessions][:password])
       session[:player_id] = player.id
       redirect_to '/'

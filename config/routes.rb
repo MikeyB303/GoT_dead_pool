@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   
   resources :characters, only: [:index, :show]
   resources :player_pools
+  resources :players, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
 end
