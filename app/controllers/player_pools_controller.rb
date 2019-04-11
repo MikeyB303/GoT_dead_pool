@@ -1,6 +1,11 @@
 class PlayerPoolsController < ApplicationController
+  
   def index
     @pools = PlayerPool.all
+  end
+
+  def show
+    @pool = PlayerPool.find(params[:id])
   end
 
   def new

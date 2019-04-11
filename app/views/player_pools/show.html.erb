@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Character</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @pool.pool_selections.each do |selection| %>
+          <tr>
+            <td><%= selection.character.name %></td>
+            <td><%= selection.status.label %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <% @pool.pool_bonus_question_answers.each do |question| %>
+      <div class="form-group">
+        <label for="bonus_question_<%= question.id %>"><%= question.bonus_question.label %></label>
+        <input class="form-control" id="bonus_question_<%= question.id %>" value="<%= question.answer %>" readonly>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
