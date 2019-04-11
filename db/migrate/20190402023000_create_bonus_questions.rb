@@ -3,6 +3,7 @@ class CreateBonusQuestions < ActiveRecord::Migration[5.2]
     create_table :bonus_questions do |t|
       t.string :label, null: false
       t.string :answer, null: false
+      t.integer :point_value, null: false
 
       t.timestamps
     end

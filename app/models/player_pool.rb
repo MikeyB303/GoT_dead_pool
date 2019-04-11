@@ -11,6 +11,10 @@ class PlayerPool < ApplicationRecord
       total += selection.points
     end
 
+    self.pool_bonus_question_answers.each do |question|
+      total += question.points
+    end
+
     return total
   end
 
@@ -18,6 +22,10 @@ class PlayerPool < ApplicationRecord
     total = 0
     self.pool_selections.each do |selection|
       total += selection.unassigned_points
+    end
+
+    self.pool_bonus_question_answers.each do |question|
+      total += question.unassigned_points
     end
 
     return total

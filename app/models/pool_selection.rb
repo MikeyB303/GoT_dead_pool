@@ -26,13 +26,10 @@ class PoolSelection < ApplicationRecord
     character = self.character
     locked = character.locked?
     if !locked && selected_status_label == "Dead"
-      p "Dead points available"
       unassigned_points = 1
     elsif !locked && selected_status_label == "White Walker"
-      p "WW points available"
       unassigned_points = 2
     else
-      p "No points!"
       unassigned_points = 0
     end
     

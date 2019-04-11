@@ -36,11 +36,11 @@ Character.create([
   {name: "Tormund Giantsbane", status_id: alive.id},
   {name: "Grey Worm", status_id: alive.id},
   {name: "Gendry", status_id: alive.id},
-  {name: "Beric Dondarrion", status_id: alive.id},
+  {name: "Beric Dondarrion", status_id: alive.id}
 ])
 
 BonusQuestion.create([
-  {label: "Is Daeneryes pregnant?", answer: "False"},
-  {label: "Who kills the Night King?", answer: "Unknown"},
-  {label: "Who holds the Iron Throne at the end?", answer: "Unknown"}
+  {label: "Is Daeneryes pregnant? (+1)", answer: "Unknown", point_value: 1},
+  {label: "Who kills the Night King? (+2)", answer: "Unknown", point_value: 2},
+  {label: "Who holds the Iron Throne at the end? (+4)", answer: "Unknown", point_value: 4}
 ])

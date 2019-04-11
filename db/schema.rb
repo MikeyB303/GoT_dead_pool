@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_023542) do
   create_table "bonus_questions", force: :cascade do |t|
     t.string "label", null: false
     t.string "answer", null: false
+    t.integer "point_value", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
