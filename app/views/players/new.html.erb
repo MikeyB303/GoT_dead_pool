@@ -8,21 +8,26 @@
   <%= form_for :players, url: '/players' do |f| %>
     <div class="row justify-content-center pt-1">
       <div class="col-md-4">
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, class: 'validate form-control' %>
+        <%= f.text_field :first_name, placeholder: 'First Name', class: 'validate form-control'%>
       </div>
     </div>
     <div class="row justify-content-center pt-1">
       <div class="col-md-4">
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name, class: 'validate form-control' %>
+        <%= f.text_field :last_name, placeholder: 'Last Name', class: 'validate form-control' %>
       </div>
     </div>
 
     <div class="row justify-content-center pt-1">
       <div class="col-md-4">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'validate form-control' %>
+        <%= f.email_field :email, placeholder: 'Email', class: 'validate form-control' %>
+        <p><small>(This will only be used for sign in. I won't email you)</small></p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center pt-1">
+      <div class="col-md-4">
+        <%= f.password_field :password, placeholder: 'Password', class: 'validate form-control' %>
+        <p><small>(It's encrypted. I won't know your password)</small></p>
       </div>
     </div>
 
