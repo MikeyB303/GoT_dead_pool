@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_023542) do
   create_table "characters", force: :cascade do |t|
     t.string "name", null: false
     t.integer "status_id", null: false
+    t.boolean "locked?", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_023542) do
     t.integer "bonus_question_id", null: false
     t.integer "player_pool_id", null: false
     t.string "answer", null: false
+    t.boolean "correct?", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

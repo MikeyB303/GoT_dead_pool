@@ -1,5 +1,6 @@
 class PlayerPoolsController < ApplicationController
-  def index    
+  def index
+    @pools = PlayerPool.all
   end
 
   def new

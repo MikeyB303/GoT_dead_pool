@@ -4,6 +4,7 @@ class CreatePoolBonusQuestionAnswers < ActiveRecord::Migration[5.2]
       t.integer :bonus_question_id, null: false
       t.integer :player_pool_id, null: false
       t.string :answer, null: false
+      t.boolean :correct?, default: false, null: false
 
       t.timestamps
     end

@@ -1,1 +1,21 @@
-<h1>Player pool index!!!</h1>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Player Name</th>
+        <th>Current Score</th>
+        <th>Points Remaining</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pools.each do |pool| %>
+      <tr>
+        <td><%= pool.player.player_name %></td>
+        <td><%= pool.score %></td>
+        <td><%= pool.points_remaining %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
