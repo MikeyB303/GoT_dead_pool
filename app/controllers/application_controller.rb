@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :require_login, :pool_made?
+  helper_method :logged_in?
 
   def logged_in?
     !!session[:player_id]
