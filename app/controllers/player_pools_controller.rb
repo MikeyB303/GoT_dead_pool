@@ -1,7 +1,7 @@
 class PlayerPoolsController < ApplicationController
   
   def index
-    @pools = PlayerPool.all
+    @pools = PlayerPool.all.sort_by {|pool| pool.score }.reverse!
   end
 
   def show
