@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :require_login, :pool_made?
-  helper_method :logged_in?
+  helper_method :logged_in?, :authorized?
 
   def logged_in?
     !!session[:player_id]
@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
     else
       @pool_available = false
     end
+  end
+
+  def authorized?(player_id)
+    session[:player_id] == player_id.to_i
   end
 
 end
