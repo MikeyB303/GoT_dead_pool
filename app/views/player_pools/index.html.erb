@@ -1,21 +1,76 @@
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Player Name</th>
-        <th>Current Score</th>
-        <th>Points Remaining</th>
-      </tr>
-    </thead>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>Leaderboard</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table table-striped table-dark table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Player Name</th>
+            <th>Current Score</th>
+            <th>Points Remaining</th>
+          </tr>
+        </thead>
 
-    <tbody>
-      <% @pools.each do |pool| %>
-      <tr>
-        <td><a href="/player_pools/<%= pool.id %>"><%= pool.player.full_name %></a></td>
-        <td><%= pool.score %></td>
-        <td><%= pool.points_remaining %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <tbody>
+          <% @pools.each do |pool| %>
+          <tr>
+            <td><%= @pools.index(pool) + 1 %></td>
+            <td><a href="/player_pools/<%= pool.id %>"><%= pool.player.full_name %></a></td>
+            <td><%= pool.score %></td>
+            <td><%= pool.points_remaining %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <div class="card bg-dark text-white">
+        <h5 class="card-header text-center"></h5>
+        <div class="card-body bg-secondary">
+          <h5 class="card-title">Bonus Question Answers:</h5>
+          <ol>
+            <% @bonus_questions.each do |question| %>
+            <li> <%= question.label %>: <%= question.answer %> </li>
+            <% end %>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card bg-dark text-white">
+        <h5 class="card-header text-center"></h5>
+        <div class="card-body bg-secondary">
+          <h5 class="card-title">Rules</h5>
+          <ol>
+            <li>Players must submit a pool prior to the start of the first episode. (April 14th @8:00pm)</li>
+            <li>Players can edit their pools as much as they want before the first episode. After that the pools are locked-in.</li>
+            <li>There will be a $10 buy-in to make things interesting. Prize distribution will be determined by the total amount of players</li>
+          </ol>
+        </div>
+      </div>
+      <div class="card bg-dark text-white mt-3">
+        <h5 class="card-header text-center"></h5>
+        <div class="card-body bg-secondary">
+          <h5 class="card-title">Scoring</h5>
+          <p>The following is a breakdown of how dead pool scoring works:</p>
+          <ul>
+            <li>(+1) Correct prediction of a character staying alive or dying.</li>
+            <li>(+2) Correct prediction of a character becoming a white walker.</li>
+            <li>
+              A character becoming a white walker assumes that they die first. If a player selects a character to die and that character becomes a white walker after dying, the player still gains (+1). On the other hand if a player picks a character to become a white walker and that character dies without becoming one, the player doesn't gain any points.
+            </li>
+          </ul>
+          <p>There are also 3 bonus questions for a total of (+7):</p>
+          <ul>
+            <li>(+1) Correct prediction of a Daeneryes Targaryen being or becoming pregnant.</li>
+            <li>(+2) Correct prediction of the character who kills the Knight King</li>
+            <li>(+4) Correct prediction of the character who will sit on the Iron Throne</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
