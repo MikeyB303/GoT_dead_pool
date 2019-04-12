@@ -10,6 +10,8 @@ class PoolSelection < ApplicationRecord
 
     if selected_status_label != character_status_label
       points_awarded = 0
+    elsif selected_status_label == "Dead" && character_status_label == "White Walker"
+      points_awarded = 1
     else
       if selected_status_label == "White Walker"
         points_awarded = 2
@@ -29,6 +31,9 @@ class PoolSelection < ApplicationRecord
       unassigned_points = 1
     elsif !locked && selected_status_label == "White Walker"
       unassigned_points = 2
+      if character.status.label == "Dead"
+        unassigned_points = 1
+      end
     else
       unassigned_points = 0
     end

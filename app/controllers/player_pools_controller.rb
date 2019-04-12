@@ -55,6 +55,7 @@ class PlayerPoolsController < ApplicationController
 
   def edit
     @pool = PlayerPool.find_by(id: params[:id])
+    redirect_to root_path if !authorized?(@pool.player_id)
   end
 
   def update

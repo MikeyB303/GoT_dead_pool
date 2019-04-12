@@ -11,7 +11,7 @@
     <tbody>
       <% @pools.each do |pool| %>
       <tr>
-        <td><a href="/player_pools/<%= pool.id %>"><%= pool.player.player_name %></a></td>
+        <td><a href="/player_pools/<%= pool.id %>"><%= pool.player.full_name %></a></td>
         <td><%= pool.score %></td>
         <td><%= pool.points_remaining %></td>
       </tr>
