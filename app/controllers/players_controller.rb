@@ -7,6 +7,8 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(player_params)
     @player.email.downcase!
+    @player.first_name.capitalize!
+    @player.last_name.capitalize!
     if @player.save
       session[:player_id] = @player.id
       redirect_to "/"
