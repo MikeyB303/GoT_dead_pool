@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_04_04_023542) do
     t.string "name", null: false
     t.integer "status_id", null: false
     t.boolean "locked?", default: false, null: false
+    t.string "image_path", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

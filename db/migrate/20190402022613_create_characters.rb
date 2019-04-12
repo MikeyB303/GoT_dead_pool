@@ -4,6 +4,7 @@ class CreateCharacters < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.integer :status_id, null: false
       t.boolean :locked?, default: false, null: false
+      t.string :image_path, null: false
 
       t.timestamps
     end
