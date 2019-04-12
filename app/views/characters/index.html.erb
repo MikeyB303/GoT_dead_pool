@@ -1,19 +1,21 @@
-<div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-
-    <tbody>
+<div class="container-fluid">
+  <div class="row justify-content-center pt-3">
       <% @characters.each do |character| %>
-      <tr>
-        <td><%= character.name %></td>
-        <td><%= character.status.label %></td>
-      </tr>
+      <div class="card" style="background-color: #d4d5d6">
+        <img class="card-img-top" src="<%= character.image_path %>" alt="Card image cap" style="width: 300px; height: 300px;">
+        <div class="card-body">
+          <h5 class="card-title text-center"><%= character.name %></h5>
+          <% if character.status.label == "Alive" %>
+          <a href="#" class="btn btn-success btn-block disabled">Alive</a>
+          <% end %>
+          <% if character.status.label == "Dead" %>
+          <a href="#" class="btn btn-danger btn-block disabled">Dead</a>
+          <% end %>
+          <% if character.status.label == "White Walker" %>
+          <a href="#" class="btn btn-primary btn-block disabled">White Walker</a>
+          <% end %>
+        </div>
+      </div>
       <% end %>
-    </tbody>
-  </table>
+  </div>
 </div>
