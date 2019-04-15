@@ -26,6 +26,7 @@ class PlayerPoolsController < ApplicationController
       bonus_question = PoolBonusQuestionAnswer.new(:bonus_question_id => question.id)
       @bonus_questions.push(bonus_question)
     end
+    redirect_to root_path if Game.first.started?
   end
 
   def create
@@ -56,7 +57,7 @@ class PlayerPoolsController < ApplicationController
 
   def edit
     @pool = PlayerPool.find_by(id: params[:id])
-    redirect_to root_path if !authorized?(@pool.player_id)
+    redirect_to root_path if !authorized?(@pool.player_id) || Game.first.started?
   end
 
   def update
