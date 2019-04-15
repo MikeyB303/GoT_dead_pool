@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :require_login, :pool_made?
-  helper_method :logged_in?, :authorized?
+  helper_method :logged_in?, :authorized?, :game_started?
 
   def logged_in?
     !!session[:player_id]
@@ -26,6 +26,14 @@ class ApplicationController < ActionController::Base
       end
     else
       @pool_available = false
+    end
+  end
+
+  def game_started?
+    if Game.first == nil
+      false
+    else
+      Game.first.started?
     end
   end
 

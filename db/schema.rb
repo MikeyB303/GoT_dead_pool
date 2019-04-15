@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_04_023542) do
+ActiveRecord::Schema.define(version: 2019_04_15_000640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,13 @@ ActiveRecord::Schema.define(version: 2019_04_04_023542) do
     t.integer "status_id", null: false
     t.boolean "locked?", default: false, null: false
     t.string "image_path", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.boolean "started?", default: false
+    t.boolean "finished?", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

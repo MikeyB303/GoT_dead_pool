@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       
       <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-        <% if logged_in? %>
+        <% if logged_in? && !game_started?%>
         <% if @pool_available %>
         <a class="btn btn-outline-primary" href="/player_pools/<%= @pool_id %>/edit" role="button">Edit Dead Pool</a>
         <% else %>
